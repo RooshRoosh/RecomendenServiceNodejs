@@ -151,12 +151,11 @@ pg.connect(connectionString, function(err, client, done) {
     // Handle connection errors
     if(err) {
       done();
-      return res.status(500).json({ success: false, data: err});
+      console.log({ success: false, data: err});
     }
 
     // SQL Query > Insert Data
-//    client.query("INSERT INTO film(id, title, year, rank, imdb_position, poster) values " + insert_values.join(', '));
-    done()
+    client.query("INSERT INTO film(id, title, year, rank, imdb_position, poster) values " + insert_values.join(', '));
     // SQL Query > Select Data
     var query = client.query("SELECT * FROM film ORDER BY id ASC");
 //
@@ -167,7 +166,7 @@ pg.connect(connectionString, function(err, client, done) {
 //
     // After all data is returned, close connection and return results
     query.on('end', function() {
-        done();
-        return res.json(results);
+        console.log(results)
+        client.close()
     });
 })
