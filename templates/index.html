@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+</head>
+<body class="row">
+    <div class="col-md-8 col-md-offset-2">
+    <h1>{{ title }}</h1>
+    <table class="table">
+        {% for film in film_list %}
+        <tr>
+            <td>
+                <a href="/film/{{ film.id }}"><img width="150" src="{{ film.poster }}"></a>
+            </td>
+            <td>
+                <a href="/film/{{ film.id }}">
+                    <h2>{{ film.title }}</h2>
+                </a> ({{ film.year }})
+            </td>
+            <td>
+                Рейтинг: {{ film.rank }}
+                <br>
+                IMDB: {{ film.position }}{{ film.imdb_position }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
