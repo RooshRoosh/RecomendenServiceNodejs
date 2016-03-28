@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>{{ title }}</h1>
+
+    <table>
+
+    {% for film_row in film_list %}
+        <tr>
+        {% for film in film_row %}
+            <td>
+                <img src="{{film.poster}}" width="200">
+                <h2>{{ film.title }}</h2>
+            </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+
+
+    </table>
+
+</body>
+</html>
