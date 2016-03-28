@@ -1,7 +1,12 @@
 pg = require('pg')
 
 
-connectionString = "postgres://postgres:postgres@localhost:5432/ai_recipe";
+var connectionString =  "postgres://postgres:postgres@localhost:5432/ai_recipe";
+
+//  "postgres://username:password@host:5432/db_name"
+
+//  "postgres://postgres:postgres@localhost:5432/market";
+
 // Get a Postgres client from the connection pool
 
 film_list = [
@@ -142,9 +147,6 @@ for (var i=0;i<film_list.length; i++){
 }
 
 
-console.log(insert_values)
-
-
 var results = [];
 
 pg.connect(connectionString, function(err, client, done) {
@@ -155,18 +157,26 @@ pg.connect(connectionString, function(err, client, done) {
     }
 
     // SQL Query > Insert Data
-    client.query("INSERT INTO film(id, title, year, rank, imdb_position, poster) values " + insert_values.join(', '));
+    for (var i=1; i<film_list.length; i++){
+        var title = film_list[i]['title']
+        var poster = film_list[i]['poster']
+        client.query(addFilm(title, poster));
+    }
+
     // SQL Query > Select Data
-    var query = client.query("SELECT * FROM film ORDER BY id ASC");
+    var cursor = client.query("SELECT * FROM film ORDER BY id ASC");
 //
 //    // Stream results back one row at a time
-    query.on('row', function(row) {
+    cursor.on('row', function(row) {
         results.push(row);
     });
 //
     // After all data is returned, close connection and return results
-    query.on('end', function() {
+    cursor.on('end', function() {
         console.log(results)
         client.close()
     });
 })
+
+
+

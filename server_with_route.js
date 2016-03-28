@@ -54,8 +54,8 @@ router.get('/', function(req, res) {
 router.get('/film/:film_id', function(req, res){
 
       var id = req.params.film_id,
-          film_list = [],
-          tmpl = template.compileFile('./templates/film_details.html');
+      film_list = [],
+      tmpl = template.compileFile('./templates/film_details.html');
 
 
       pg.connect(connectionString, function(err, client, done) {
@@ -90,9 +90,47 @@ router.get('/film/:film_id', function(req, res){
 
     });
 
+})
 
-    }
-)
+router.post('/commend/add/:film_id', function(req, res){
+    var id = req.params.film_id,
+    film_list = [],
+    tmpl = template.compileFile('./templates/film_details.html');
+
+
+    pg.connect(connectionString, function(err, client, done) {
+        // Handle connection errors
+        if(err) {
+          done();
+          console.log(err);
+          return res.status(500).json({success: false, data: err});
+        }
+
+        // SQL Query > Select Data
+        var query = client.query("SELECT * FROM film WHERE id=" + id);
+
+        // Stream results back one row at a time
+        query.on('row', function(row) {
+
+            film_list.push(row);
+            return res.end(
+                tmpl(
+                    {
+                        'film': row,
+                    }
+                )
+            )
+        });
+
+        // After all data is returned, close connection and return results
+        query.on('end', function() {
+            client.end()
+
+        });
+
+    });
+
+})
 
 
 var port = 8008,
