@@ -361,8 +361,15 @@ pg.connect(connectionString, function(err, client, done) {
 
     // SQL Query > Insert Data
     client.query("INSERT INTO movie(title, year, rank, poster) values " + insert_values.join(', '));
+    for (var movie_id=1;i<=film_list.lenght;i++){
+        for (var user_id=1; j<=5; j++){
+            if (math.random()>0.56){
+                client.query("INSERT INTO likes(user_id, movie_id) values "+"("+user_id+','+movie_id+")";
+            }
+        }
+    }
     // SQL Query > Select Data
-    var cursor = client.query("SELECT * FROM movie ORDER BY id ASC");
+    var cursor = client.query("SELECT * FROM likes ORDER BY id ASC");
 //
 //    // Stream results back one row at a time
     cursor.on('row', function(row) {
