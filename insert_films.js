@@ -131,17 +131,220 @@ film_list = [
         'rank': 8.5,
         'position': 29,
         'poster': 'http://www.kinopoisk.ru/images/film_big/370.jpg'
-    }
+    },
+    {
+        "title":"Зеленая миля",
+        "year":1999,
+        "rank": 8.5,
+        "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_435.jpg"
+    },
+{
+    "title":"1+1",
+    "year": 2011,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_535341.jpg",
+    "rank": 8.8
+},
+{
+    "title":"Жизнь прекрасна",
+    "year": 1997,
+    "poster":"http://www.kinopoisk.ru/images/film_big/381.jpg",
+    "rank": 8.6
+},
+{
+    "title":"Иван Васильевич меняет профессию",
+    "year": 1973,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_42664.jpg",
+    "rank": 8.7
+},
+{
+    "title":"Достучаться до небес",
+    "year": 1997,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_32898.jpg",
+    "rank": 8.6
+},
+{
+    "title": "Интерстеллар",
+    "year": 2014,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_258687.jpg",
+    "rank": 8.6
+},
+{
+    "title":"Престиж",
+    "year": 2006,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_195334.jpg",
+    "rank": 8.5
+},
+{
+    "title":"Игры разума",
+    "year": 2001,
+    "poster":"http://www.kinopoisk.ru/images/film_big/530.jpg",
+    "rank": 8.5
+},
+{
+    "title":"Операция «Ы» и другие приключения Шурика",
+    "year": 1965,
+    "poster":"http://www.kinopoisk.ru/images/film_big/42782.jpg",
+    "rank": 8.7
+},
+{
+    "title":"Гладиатор",
+    "year": 2000,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_474.jpg",
+    "rank": 8.6
+},
+{
+    "title":"Назад в будущее",
+    "year": 1985,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_476.jpg",
+    "rank": 8.6
+},
+{
+    "title": "Карты, деньги, два ствола",
+    "year": 1998,
+    "poster": "http://st.kp.yandex.net/images/film_iphone/iphone360_522.jpg",
+    "rank": 8.5
+},
+{
+    "title":"Зверополис",
+    "year": 2016,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_775276.jpg",
+    "rank": 8.6
+},
+{
+    "title":"Пианист",
+    "year": 2002,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_355.jpg",
+    "rank": 8.4
+},
+{
+    "title":"Поймай меня, если сможешь",
+    "year": 2002,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_324.jpg",
+    "rank": 8.5
+},
+{
+    "title":"В бой идут одни «старики»",
+    "year": 1973,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_25108.jpg",
+    "rank": 8.7
+},
+{
+    "title":"Властелин колец: Братство кольца",
+    "year": 2001,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_328.jpg",
+    "rank": 8.5
+},
+{
+    "title":"Отступники",
+    "year": 2006,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_81314.jpg",
+    "rank": 8.4
+},
+{
+    "title":"Бриллиантовая рука",
+    "year": 1968,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_46225.jpg",
+    "rank": 8.6
+},
+{
+    "title":"Властелин колец: Две крепости",
+    "year": 2002,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_312.jpg",
+    "rank": 8.5
+},
+{
+    "title":"Американская история Х",
+    "year": 1998,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_382.jpg",
+    "rank": 8.4
+},
+{
+    "title":"Большой куш",
+    "year": 2000,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_526.jpg",
+    "rank": 8.5
+},
+{
+    "title":"Остров проклятых",
+    "year": 2009,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_397667.jpg",
+    "rank": 8.5
+},
+{
+    "title": "Пробуждение",
+    "poster":"http://www.kinopoisk.ru/images/film_big/2950.jpg",
+    "year": 1990,
+    "rank": 8.4
+},
+{
+    "title":"Пираты Карибского моря: Проклятие Черной жемчужины",
+    "year": 2003,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_4374.jpg",
+    "rank": 8.3
+},
+{
+    "title":"Хористы",
+    "year": 2004,
+    "poster":"http://st.kp.yandex.net/images/film_iphone/iphone360_51481.jpg",
+    "rank": 8.3
+},
+{
+    "title":"Джентльмены удачи",
+    "year": 1971,
+    "poster":"http://www.kinopoisk.ru/images/film_big/44386.jpg",
+    "rank": 8.6
+},
+{
+    "title":"Дубровский",
+    "year": 2014,
+    "rank": 5.763,
+    "poster":"http://right-film.ru/uploads/posts/2016-02/1456157180-1824291676.jpg",
+    "director":"Александр Вартанов"
+},
+{
+    "title":"Про Любовь",
+    "poster":"http://drufilms.ru/uploads/posts/2015-12/1450534383-2032288180.jpg",
+    "director":"Анна Меликян",
+    "year": 2015,
+    "rank": 6.559
+},
+{
+    "title":"Король Лев",
+    "poster":"http://ru2.anyfad.com/items/t2@c60a98bb-6f13-4f16-b238-1c9c1c8b07e4/Korol-Lev-1994.jpg",
+    "director":"Роджер Аллерс",
+    "year": 1994,
+    "rank": 8.8,
+},
+{
+    "title":"Приключения Паддингтона",
+    "poster":"http://kinogo-net-2015.ru/uploads/posts/2015-01/1421601585_priklyucheniya-paddingtona.jpg",
+    "director":"Пол Кинг",
+    "year": 2014,
+    "rank": 7.2,
+},
+{
+    "title":"Гарри Поттер и Дары Смерти",
+    "poster":"http://kino-go.tv/uploads/posts/2015-07/1437691322_poster-407636.jpg",
+    "director":"Дэвид Йэтс",
+    "year": 2010,
+    "rank": 7.8
+},
+{
+    "title":"Хроники Нарнии: Покоритель Зари",
+    "poster":"http://kino-go.tv/uploads/posts/2015-09/1441656442_poster-281439.jpg",
+     "director":"Майкл Аптед",
+     "year":2010,
+     "rank": 6.9
+}
 ]
 
 var insert_values = []
 
 for (var i=0;i<film_list.length; i++){
-    var film_query = '('+film_list[i]['id']+","+
+    var film_query = '('+
     "'"+film_list[i]['title']+"',"+
     ""+film_list[i]['year']+","+
     ""+film_list[i]['rank']+","+
-    ""+film_list[i]['position']+","+
     "'"+film_list[i]['poster']+"')"
     insert_values.push(film_query)
 }
@@ -157,14 +360,9 @@ pg.connect(connectionString, function(err, client, done) {
     }
 
     // SQL Query > Insert Data
-    for (var i=1; i<film_list.length; i++){
-        var title = film_list[i]['title']
-        var poster = film_list[i]['poster']
-        client.query(addFilm(title, poster));
-    }
-
+    client.query("INSERT INTO movie(title, year, rank, poster) values " + insert_values.join(', '));
     // SQL Query > Select Data
-    var cursor = client.query("SELECT * FROM film ORDER BY id ASC");
+    var cursor = client.query("SELECT * FROM movie ORDER BY id ASC");
 //
 //    // Stream results back one row at a time
     cursor.on('row', function(row) {
@@ -174,7 +372,6 @@ pg.connect(connectionString, function(err, client, done) {
     // After all data is returned, close connection and return results
     cursor.on('end', function() {
         console.log(results)
-        client.close()
     });
 })
 
