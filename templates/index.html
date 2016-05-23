@@ -4,24 +4,113 @@
     <title>{{ title }}</title>
     <link href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 </head>
-<body class="row">
+
+<script>
+    var a;
+    function run(){
+
+        var filmSelectors = document.getElementsByClassName('film-selector')
+
+        for (var i=0;i<filmSelectors.length;i++){
+            filmSelectors[i].onchange = function(event){
+                var row = event.target.parentNode.parentNode.parentNode.parentNode;
+                var filmId = parseInt(row.id.split('-')[1]);
+                var filmTitle = event.target.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].childNodes[1].innerText;
+                var xhr = new XMLHttpRequest()
+                var body = 'id=' + encodeURIComponent(filmId) +
+                            '&value=' + encodeURIComponent(event.target.value);
+                xhr.open('POST','/like')
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+                xhr.send(body);
+                xhr.onreadystatechange = function(){
+                    if (this.readyState != 4) return;
+                    alert( this.responseText );
+                }
+                console.log(body, filmTitle)
+            }
+        }
+
+
+
+    }
+
+</script>
+
+<body class="row" onload="run()">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Фильмы</a></li>
+            <li>
+                {% if username %}
+                    <a href="/logout">{{ username }} Ты можешь выйти</a>
+                {% else %}
+                    <a href="/login" class="">Представься Неизвестный</a>
+                {% endif %}
+            </li>
+            <li>
+                <a href="/users/">Список пользователей</a>
+            </li>
+            <li>
+                <a href="/recommendation/users">Похожие пользователи</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="col-md-8 col-md-offset-2">
     <h1>{{ title }}</h1>
     <table class="table">
         {% for film in film_list %}
-        <tr>
+        <tr id="film-{{film.id}}">
             <td>
                 <a href="/film/{{ film.id }}"><img width="150" src="{{ film.poster }}"></a>
             </td>
             <td>
-                <a href="/film/{{ film.id }}">
-                    <h2>{{ film.title }}</h2>
-                </a> ({{ film.year }})
+                <div class="row">
+                    <div class="col-md-8">
+                        <a href="/film/{{ film.id }}">
+                            <h2>{{ film.title }}</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ film.rating }}
+                        {% if username %}
+                            <select class="form-control film-selector">
+                                <option value="0.0" {% if film.rating == 0.0 %}selected="selected"{% endif %}>Не смотрел</option>
+                                <option value="0.5" {% if film.rating == 0.5 %}selected="selected"{% endif %}>0.5</option>
+                                <option value="1.0" {% if film.rating == 1.0 %}selected="selected"{% endif %}>1.0</option>
+                                <option value="1.5" {% if film.rating == 1.5 %}selected="selected"{% endif %}>1.5</option>
+                                <option value="2.0" {% if film.rating == 2.0 %}selected="selected"{% endif %}>2.0</option>
+                                <option value="2.5" {% if film.rating == 2.5 %}selected="selected"{% endif %}>2.5</option>
+                                <option value="3.0" {% if film.rating == 3.0 %}selected="selected"{% endif %}>3.0</option>
+                                <option value="3.5" {% if film.rating == 3.5 %}selected="selected"{% endif %}>3.5</option>
+                                <option value="4.0" {% if film.rating == 4.0 %}selected="selected"{% endif %}>4.0</option>
+                                <option value="4.5" {% if film.rating == 4.5 %}selected="selected"{% endif %}>4.5</option>
+                                <option value="5.0" {% if film.rating == 5.0 %}selected="selected"{% endif %}>5.0</option>
+                                <option value="5.5" {% if film.rating == 5.5 %}selected="selected"{% endif %}>5.5</option>
+                                <option value="6.0" {% if film.rating == 6.0 %}selected="selected"{% endif %}>6.0</option>
+                                <option value="6.5" {% if film.rating == 6.5 %}selected="selected"{% endif %}>6.5</option>
+                                <option value="7.0" {% if film.rating == 7.0 %}selected="selected"{% endif %}>7.0</option>
+                                <option value="7.5" {% if film.rating == 7.5 %}selected="selected"{% endif %}>7.5</option>
+                                <option value="8.0" {% if film.rating == 8.0 %}selected="selected"{% endif %}>8.0</option>
+                                <option value="8.5" {% if film.rating == 8.5 %}selected="selected"{% endif %}>8.5</option>
+                                <option value="9.0" {% if film.rating == 9.0 %}selected="selected"{% endif %}>9.0</option>
+                                <option value="9.5" {% if film.rating == 9.5 %}selected="selected"{% endif %}>9.5</option>
+                                <option value="10.0" {% if film.rating == 10.0 %}selected="selected"{% endif %}>10.0</option>
+                            </select>
+                        {% else %}
+                            <a class="btn btn-link">Авторизуйтесь, чтобы ставить оценки</a>
+                        {% endif %}
+                    </div>
+                </div>
             </td>
             <td>
                 Рейтинг: {{ film.rank }}
                 <br>
-                IMDB: {{ film.position }}{{ film.imdb_position }}
+                ({{ film.year }})
             </td>
         </tr>
         {% endfor %}

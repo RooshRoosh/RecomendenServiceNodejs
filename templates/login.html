@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+</head>
+<body class="row">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Фильмы</a></li>
+            <li>
+                {% if username %}
+                    <a href="/logout">{{ username }} Ты можешь выйти</a>
+                {% else %}
+                    <a href="/login" class="">Представься Неизвестный</a>
+                {% endif %}
+            </li>
+            <li>
+                <a href="/users/">Список пользователей</a>
+            </li>
+            <li>
+                <a href="/recommendation/users">Похожие пользователи</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-md-4 col-md-offset-4">
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="username">Представьтесь</label>
+                <br/>
+                <input id="username" type="text" name="username" placeholder="Ваше имя" class="form-control">
+                <br/>
+                <input type="submit" class="btn btn-success btn-lg" value="Войти и пошуметь.." align="center">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -5,6 +5,27 @@
     <link href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 </head>
 <body class="row">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Фильмы</a></li>
+            <li>
+                {% if username %}
+                    <a href="/logout">{{ username }} Ты можешь выйти</a>
+                {% else %}
+                    <a href="/login" class="">Представься Неизвестный</a>
+                {% endif %}
+            </li>
+            <li>
+                <a href="/users/">Список пользователей</a>
+            </li>
+            <li>
+                <a href="/recommendation/users">Похожие пользователи</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="col-md-8 col-md-offset-2">
     <h1>{{ film.title }}</h1>
         <div class="row">
@@ -16,17 +37,23 @@
                     <ul class="list-unstyled">
                         <li>Год: ({{ film.year }})</li>
                         <li>Рейтинг: {{ film.rank }}</li>
-                        <li>IMDB: {{ film.imdb_position }}</li>
                     </ul>
                 </div>
                 <div class="row">
                     Описание:
                 </div>
-
             </div>
         </div>
         <div class="row">
-            <h3>Комментарии</h3>
+            <h3>Похожие фильмы</h3>
+            {% for sim_film in film.sim_movies %}
+            <div class="col-md-3">
+                <h4>
+                    {{ sim_film.title }}
+                </h4>
+                <img src="{{ sim_film.poster }}" height="200">
+            </div>
+            {% endfor %}
         </div>
         <div class="row comments">
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Фильмы</a></li>
+        <li>
+            {% if username %}
+                <a href="/logout">{{ username }} Ты можешь выйти</a>
+            {% else %}
+                <a href="/login" class="">Представься Неизвестный</a>
+            {% endif %}
+        </li>
+        <li>
+            <a href="/users/">Список пользователей</a>
+        </li>
+        <li>
+            <a href="/recommendation/users">Похожие пользователи</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="col-md-8 col-md-offset-2">
+    <h1>Пользователи с похожими вкусами</h1>
+    <table class="table">
+        {% for user in user_list %}
+        <tr>
+            <td>
+                <a href="/users/{{ user.id }}">
+                    <h2>{{ user.name }}</h2>
+                </a>
+            </td>
+            <td>
+                Общих: {{ user.l1 }}
+            </td>
+            <td>
+                Разных: {{ user.diff }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
